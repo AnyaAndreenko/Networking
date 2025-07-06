@@ -30,4 +30,7 @@ variable "ssh_user" {
   default = "ann"
 }
 
+variable "token" {
+  default = "y0__xDhktPXBxjB3RMgusunthJ2kXsBvimpIQyuaVoazLw9BVzp_w"
+}
 
