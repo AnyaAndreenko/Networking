@@ -17,7 +17,7 @@ provider "yandex" {
 }
 
 resource "yandex_vpc_network" "default" {
-  name = "my-vpc"
+  name = "clopro"
 }
 
 resource "yandex_vpc_subnet" "public" {
