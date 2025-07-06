@@ -27,7 +27,7 @@ variable "folder_id" {
 }
 
 variable "cloud_id" {
-  default = "b1gcn0j3dbo5ab28sgnt"
+  default = "b1gasmmc1h1g6r1rgd47"
 }
 
 variable "yandex_token" {
