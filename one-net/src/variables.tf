@@ -19,7 +19,7 @@ variable "ssh_public_key" {
 }
 
 variable "folder_id" {
-  default = "b1gd1posuin0b321ncsr"
+  default = "b1gicro1ra02h5iaig5l"
 }
 
 variable "cloud_id" {
