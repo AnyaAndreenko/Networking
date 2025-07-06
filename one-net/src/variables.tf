@@ -1,7 +1,3 @@
-variable "zone" {
-  default = "ru-central1-a"
-}
-
 variable "public_cidr" {
   default = "192.168.10.0/24"
 }
@@ -28,10 +24,6 @@ variable "folder_id" {
 
 variable "cloud_id" {
   default = "b1gasmmc1h1g6r1rgd47"
-}
-
-variable "yandex_token" {
-  default = "y0__xDhktPXBxjB3RMgusunthJ2kXsBvimpIQyuaVoazLw9BVzp_w"
 }
 
 variable "ssh_user" {
