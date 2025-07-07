@@ -1,3 +1,3 @@
-access_key = "your-access-key"
-secret_key = "your-secret-key"
-token = "вставь_сюда_новый_токен"
+access_key = "ajehddis6amtj4lq43ip"
+secret_key = "AQVN0WtlwyrdmSuiDlmV4voAl-0vYmcAWffCJ31b"
+token = "t1.9euelZrJjM6ZycfKksiSk5aSkpTIxu3rnpWajMaZyJSey42Wnp6Yy5qVzcjl9PdLbU88-e9VTy7V3fT3CxxNPPnvVU8u1c3n9euelZrOx5ONnY6QzZ6cyIyPk5XJke_8xeuelZrOx5ONnY6QzZ6cyIyPk5XJkQ.yPkcGGyy68AgML6_lqb5bVU3aX5pYFMoHXua58qA8_guGFVTWyjkfEr-OZ8XBeg8offIustOxmv5Ej9KQuU6BQ"
