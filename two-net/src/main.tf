@@ -12,7 +12,7 @@ provider "yandex" {
   folder_id = var.folder_id
   zone      = "ru-central1-a"
   #token     = var.token
-  service_account_key_file = file("~/key.json" )
+  service_account_key_file = "~/key.json" 
   }
 
 # Переменные вынесены в variables.tf
