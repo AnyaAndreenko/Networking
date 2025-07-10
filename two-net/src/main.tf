@@ -13,9 +13,7 @@ provider "yandex" {
   zone      = "ru-central1-a"
   token     = var.token
 
-  storage_access_key = var.access_key
-  storage_secret_key = var.secret_key
-}
+  }
 
 # Переменные вынесены в variables.tf
 
