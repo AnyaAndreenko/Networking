@@ -5,5 +5,5 @@ variable "bucket_name" {}
 #variable "secret_key" {}
 # variable "token" {}
 variable "sa_key_path" {
-  default = "~/key.json"
+  default = file("~/key.json" )
 }
