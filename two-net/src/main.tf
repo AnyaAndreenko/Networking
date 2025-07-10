@@ -42,8 +42,8 @@ resource "yandex_storage_bucket" "image_bucket" {
 }
 
 resource "yandex_storage_object" "image" {
-  access_key = var.access_key
-  secret_key = var.secret_key
+  access_key = null
+  secret_key = null
   bucket     = yandex_storage_bucket.image_bucket.bucket
   key        = "image.jpg"
   source     = "image.jpg" # Предполагается, что файл лежит рядом
