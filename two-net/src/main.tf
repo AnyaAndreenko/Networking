@@ -30,8 +30,8 @@ resource "yandex_vpc_subnet" "public" {
 
 # Object Storage
 resource "yandex_storage_bucket" "image_bucket" {
-  access_key = var.access_key
-  secret_key = var.secret_key
+  access_key = null
+  secret_key = null
   bucket     = var.bucket_name
 
   acl = "public-read"
