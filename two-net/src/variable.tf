@@ -3,7 +3,5 @@ variable "cloud_id" {}
 variable "folder_id" {}
 variable "access_key" {}
 variable "secret_key" {}
-variable "bucket_name" {
-  default = "lamp-bucket-demo"
-}
+variable "bucket_name" {}
 variable "instance_sa_id" {}
