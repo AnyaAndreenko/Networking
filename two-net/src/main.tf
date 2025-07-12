@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "yandex" {
+  token     = var.token
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
-  token     = var.token
   zone      = "ru-central1-a"
 }
 
@@ -29,11 +29,9 @@ resource "yandex_storage_bucket" "image_bucket" {
   bucket     = var.bucket_name
   access_key = var.access_key
   secret_key = var.secret_key
-  max_size   = 10
 
   anonymous_access_flags {
     read = true
-    list = false
   }
 
   website {
@@ -45,7 +43,6 @@ resource "yandex_compute_instance_group" "lamp_group" {
   name               = "lamp-group"
   folder_id          = var.folder_id
   service_account_id = var.instance_sa_id
-  depends_on         = [yandex_storage_bucket.image_bucket]
 
   instance_template {
     platform_id = "standard-v1"
@@ -85,50 +82,19 @@ EOF
     zones = ["ru-central1-a"]
   }
 
-  deploy_policy {
-    max_unavailable = 1
-    max_creating    = 1
-    max_expansion   = 1
-  }
-
   health_check {
-    interval_sec      = 10
-    timeout_sec       = 5
+    interval_sec        = 10
+    timeout_sec         = 5
     unhealthy_threshold = 2
-    healthy_threshold = 2
+    healthy_threshold   = 2
     tcp_options {
       port = 80
     }
   }
-}
 
-resource "yandex_lb_target_group" "lamp_tg" {
-  name = "lamp-target-group"
-
-  target {
-    subnet_id = yandex_vpc_subnet.public.id
-    address   = "192.168.10.10" # временное значение — не используется напрямую с instance_group
-  }
-}
-
-resource "yandex_lb_network_load_balancer" "lamp_lb" {
-  name = "lamp-nlb"
-
-  listener {
-    name        = "listener"
-    port        = 80
-    target_port = 80
-    protocol    = "tcp"
-  }
-
-  attached_target_group {
-    target_group_id = yandex_compute_instance_group.lamp_group.application_load_balancer.0.target_group_id
-    healthcheck {
-      name = "http"
-      http_options {
-        port = 80
-        path = "/"
-      }
-    }
+  deploy_policy {
+    max_unavailable = 1
+    max_creating    = 1
+    max_expansion   = 1
   }
 }
