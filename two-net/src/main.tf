@@ -10,7 +10,8 @@ terraform {
 provider "yandex" {
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
-  token     = var.token
+  service_account_key_file = file("~/secrets.auto.tfvars")
+  zone      = "ru-central1-a"
 }
 
 resource "yandex_vpc_network" "network" {
