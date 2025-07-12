@@ -38,7 +38,6 @@ resource "yandex_storage_bucket" "image_bucket" {
     index_document = "index.html"
   }
 }
-
 resource "yandex_compute_instance_group" "lamp_group" {
   name               = "lamp-group"
   folder_id          = var.folder_id
@@ -59,8 +58,8 @@ resource "yandex_compute_instance_group" "lamp_group" {
     }
 
     network_interface {
-      subnet_id = yandex_vpc_subnet.public.id
-      nat       = true
+      subnet_ids = [yandex_vpc_subnet.public.id]
+      nat        = true
     }
 
     metadata = {
@@ -82,19 +81,15 @@ EOF
     zones = ["ru-central1-a"]
   }
 
-  health_check {
-    interval_sec        = 10
-    timeout_sec         = 5
-    unhealthy_threshold = 2
-    healthy_threshold   = 2
-    tcp_options {
-      port = 80
-    }
-  }
-
   deploy_policy {
     max_unavailable = 1
     max_creating    = 1
     max_expansion   = 1
+  }
+
+  health_check {
+    tcp_options {
+      port = 80
+    }
   }
 }
