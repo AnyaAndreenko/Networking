@@ -1,9 +1,9 @@
+variable "token" {}
 variable "cloud_id" {}
 variable "folder_id" {}
-variable "bucket_name" {}
-#variable "access_key" {}
-#variable "secret_key" {}
-# variable "token" {}
-variable "sa_key_path" {
-  default = "~/key.json" 
+variable "access_key" {}
+variable "secret_key" {}
+variable "bucket_name" {
+  default = "lamp-bucket-demo"
 }
+variable "instance_sa_id" {}
