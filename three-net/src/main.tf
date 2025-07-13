@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 variable "bucket_name" {
-  default = "devops-ann-bucket-secure" # Уникальное имя
+  default = "ann-bucket-secure" # Уникальное имя
 }
 
 # KMS ключ
