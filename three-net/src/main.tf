@@ -8,7 +8,10 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a" # Используется профиль CLI, настроенный через yc init
+  service_account_key_file = file("key.json")
+  cloud_id  = "b1gasmmc1h1g6r1rgd47"
+  folder_id = "b1gicro1ra02h5iaig5l"
+  zone      = "ru-central1-a"
 }
 
 variable "bucket_name" {
