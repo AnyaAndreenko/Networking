@@ -18,22 +18,23 @@ resource "random_id" "bucket_suffix" {
   byte_length = 4
 }
 
-resource "yandex_storage_bucket" "secure_bucket" {
-  bucket     = "devops-ann-bucket-${random_id.bucket_suffix.hex}"
-  access_key = var.access_key
-  secret_key = var.secret_key
-  max_size   = 10
+resource "yandex_kms_symmetric_key" "bucket_key" {
+  name              = var.kms_key_name
+  default_algorithm = "AES_256"
+  rotation_period   = "8760h" # 1 год
+}
 
+resource "yandex_storage_bucket" "secure_bucket" {
+  bucket     = var.bucket_name
+  default_storage_class = "STANDARD"
+  max_size   = 10
   anonymous_access_flags {
-    read  = true
-    list  = false
+    read = true
+    list = false
   }
 
   website {
     index_document = "index.html"
   }
 
-  encryption {
-    kms_key_id = var.kms_key_id
-  }
 }
