@@ -20,6 +20,7 @@ resource "random_id" "bucket_suffix" {
 
 resource "yandex_kms_symmetric_key" "bucket_key" {
   name              = var.kms_key_name
+  folder_id = var.folder_id
   default_algorithm = "AES_256"
   rotation_period   = "8760h" # 1 год
 }
